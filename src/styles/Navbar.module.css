@@ -1,0 +1,14 @@
+.navbar {
+    flex-grow: 0.3;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 1rem;
+}
+
+.logo {
+    background-color: red;
+    color: aliceblue;
+    font-weight: 800;
+    font-size: 1rem;
+}
