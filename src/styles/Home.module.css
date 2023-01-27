@@ -1,29 +1,12 @@
 .main {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background: #3C4048;
-
+    background-color: rgb(247, 247, 247);
+    min-height: 100vh;
 }
 
 .container {
-    /* background-color: blue; */
-    display: flex;
-    height: 100vh;
+    background-color: blueviolet;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 1fr;
 }
 
-
-/* .box1 { */
-    /* background-color: blueviolet; */
-    /* flex-grow: 4; */
-/* } */
-
-/* .box2 { */
-    /* background-color: brown; */
-    /* flex-grow: 4; */
-/* } */
-
-.footer {
-    background-color:#EAEAEA;
-    height: 5rem;
-}

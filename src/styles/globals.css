@@ -1,7 +1,25 @@
-html, body{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
+html {
+    height: 100%;
+    background-color: aqua;
+}
+
+body {
+    min-height: 100vh;
+    background-color: bisque;
+}
+
+#__next {
+    height: 100%;
+    background-color: azure;
+}
+
+
 
 /* color: 
 https://colorhunt.co/palette/00abb33c4048b2b2b2eaeaea

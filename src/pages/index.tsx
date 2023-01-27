@@ -19,9 +19,9 @@ export default function Home() {
           <BoxUno/>
           <BoxDos/>
         </div>
-        <footer className={styles.footer}>
+        {/* <footer className={styles.footer}>
           foo
-        </footer>
+        </footer> */}
       </main>
     </>
   )
