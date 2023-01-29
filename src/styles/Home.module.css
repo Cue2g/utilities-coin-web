@@ -1,12 +1,6 @@
-.main {
-    background-color: rgb(247, 247, 247);
+.main{
+    background-color: #3C4048;
+    display: flex;
     min-height: 100vh;
-}
-
-.container {
-    background-color: blueviolet;
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 0.3fr 1fr 1fr;
 }
 

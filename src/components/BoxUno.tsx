@@ -1,65 +1,46 @@
-import React from 'react'
+import React, { Key, useEffect, useState } from 'react'
 import styles from '../styles/BoxUno.module.css'
+import Slide from '@mui/material/Slide';
 
 interface Modena {
   data: utilitiesResponse
-  simbol: String
+  simbol: String,
 }
 interface utilitiesResponse {
-  moneda: String,
+  moneda: string,
   precio: number
 }
 
-function Moneda({ data, simbol }: Modena) {
-  return (
-    <>
-      <div className={styles.table}>
-        <section className={styles.sectionTable}>{data.moneda}</section>
-        <section className={styles.sectionTable}>{data.precio} {simbol}</section>
-      </div>
-    </>
-  )
+interface response {
+
+  euro: Number,
+  yuan: Number,
+  lira: Number,
+  rublo: Number,
+  dolar: Number,
+  fecha: String
+
 }
 
 
-export default function () {
-
-  const array: Array<utilitiesResponse> = [
-    {
-      "moneda": 'USD',
-      'precio': 20000
-    },
-    {
-      "moneda": 'YUAN',
-      'precio': 3000
-    },
-    {
-      "moneda": 'EURO',
-      'precio': 5000
-    }
-
-  ]
 
 
-
+export default function BoxUno() {
 
   return (
     <div className={styles.box}>
-      
-      <section className={styles.section}>
-        <h1 className={styles.title}> Utilities coin</h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque rem, recusandae tenetur placeat corrupti tempore ut ex commodi alias officiis temporibus iste, rerum necessitatibus. Corporis laboriosam incidunt nobis ullam quo.</p>
-      </section>
-
-      <section className={styles.section}>
-        <div className={styles.tableHeader}>
-          <section className={styles.sectionTable}>Moneda</section>
-          <section className={styles.sectionTable}>Precio</section>
-        </div>
-
-        {array.map(res => <Moneda data={res} simbol='$' />)}
-      </section>
-
+      <Slide direction="up" in={true} mountOnEnter>
+        <section className={styles.section}>
+          <h1 className={styles.title}> Utilities coin</h1>
+          <p>Utilities coin es un pequeño proyecto que almacena el registro de la tasa de cambio referencial del Banco Central de Venezuela desde enero del 2020 hasta la fecha actual.</p>
+          <p>El objetivo es almacenar todos los cambios de las tasas para así realizar futuros análisis.</p>
+          <p>Esta es la primera version de la api y actualmente se encuentra en desarrollo.</p>
+          <p>Este endpoint es de libre consumo para pequeños proyectos</p>
+          <code>
+            API: bcv.utilitiesapis.ml
+          </code>
+        </section>
+      </Slide>
     </div>
   )
 }

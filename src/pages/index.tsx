@@ -3,6 +3,7 @@ import styles from '@/styles/Home.module.css'
 import Navbar from '@/components/Navbar'
 import BoxUno from '@/components/BoxUno'
 import BoxDos from '@/components/BoxDos'
+import Fade from '@mui/material/Fade';
 export default function Home() {
 
   return (
@@ -13,16 +14,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Fade in={true} unmountOnExit>
       <main className={styles.main}>
-        <div className={styles.container}>
           <Navbar />
-          <BoxUno/>
-          <BoxDos/>
-        </div>
-        {/* <footer className={styles.footer}>
+          <BoxUno />
+          <BoxDos />
+          {/* <footer className={styles.footer}>
           foo
         </footer> */}
       </main>
+      </Fade>
     </>
   )
 }

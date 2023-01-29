@@ -1,88 +1,121 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../styles/BoxDos.module.css'
-import Chart from 'chart.js/auto';
+import Tooltip from '@mui/material/Tooltip';
+import InfoIcon from '@mui/icons-material/Info';
+import CircularProgress from '@mui/material/CircularProgress';
+interface Modena {
+  data: utilitiesResponse
+  simbol: String,
+}
+interface utilitiesResponse {
+  moneda: string,
+  precio: number
+}
 
+interface response {
+
+  euro: Number,
+  yuan: Number,
+  lira: Number,
+  rublo: Number,
+  dolar: Number,
+  fecha: string
+
+}
+
+interface modenassimbols { euro: string, yuan: string, lira: string, rublo: string, dolar: string }
+
+type OnlyKeys = keyof modenassimbols;
+
+function Moneda({ data, simbol }: Modena) {
+  console.log(simbol)
+  return (
+    <>
+      <section className={styles.sectionTable}>{simbol} - {data.moneda.toUpperCase()}</section>
+      <section className={styles.sectionTable}>{data.precio} </section>
+    </>
+
+  )
+}
 
 export default function BoxDos() {
+  const [coinsData, setcoinsData] = useState([] as utilitiesResponse[])
+  const [date, setDate] = useState('' as String)
+  const [loader, setLoader] = useState(true)
+  useEffect(() => {
+    getData()
+  }, [])
 
-  const [chartData, setChartData] = useState() as any;
-
-  const Data = [
-    {
-      id: 1,
-      year: 2016,
-      userGain: 80000,
-      userLost: 823
-    },
-    {
-      id: 2,
-      year: 2017,
-      userGain: 45677,
-      userLost: 345
-    },
-    {
-      id: 3,
-      year: 2018,
-      userGain: 78888,
-      userLost: 555
-    },
-    {
-      id: 4,
-      year: 2019,
-      userGain: 90000,
-      userLost: 4555
-    },
-    {
-      id: 5,
-      year: 2020,
-      userGain: 4300,
-      userLost: 234
+  const getData = async () => {
+    try {
+      const peticion = await fetch('https://bcv.utilitiesapis.ml');
+      const json = await peticion.json()
+      const data = json.data as response;
+      const fechaActualizacion = new Date(data.fecha)
+      const fechaFormat: string = fechaActualizacion.toLocaleDateString('es-ES')
+      const minutes = fechaActualizacion.getMinutes() >= 10 ? fechaActualizacion.getMinutes().toLocaleString() : `0${fechaActualizacion.getMinutes().toLocaleString()}`
+      const horaFormat: string = `${fechaActualizacion.getHours()}:${minutes}`
+      setDate(`ultima actualización el dia: ${fechaFormat} - ${horaFormat}`)
+      arreglarData(data)
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoader(false)
     }
-  ]; 
-
-  const data = {
-    labels: ['Red', 'Orange', 'Blue'],
-    datasets: [
-      {
-        label: 'Popularity of colours',
-        data: [55, 23, 96],
-        backgroundColor: [
-          'rgba(255, 255, 255, 0.6)',
-          'rgba(255, 255, 255, 0.6)',
-          'rgba(255, 255, 255, 0.6)',
-        ],
-        borderWidth: 1,
-      }
-    ]
   }
 
-  useEffect(() => {
-    
-    setChartData({
-      labels: Data.map((data) => data.year),
-      datasets: [
-        {
-          label: "Users Gained ",
-          data: Data.map((data) => data.userGain),
-          backgroundColor: [
-            "rgba(75,192,192,1)",
-            "#ecf0f1",
-            "#50AF95",
-            "#f3ba2f",
-            "#2a71d0"
-          ],
-          borderColor: "black",
-          borderWidth: 2
-        }
-      ]
-    })
-    console.log(chartData)
-  }, [])
+  const arreglarData = (data: response) => {
+    const arrayData: utilitiesResponse[] = []
+    for (const [key, value] of Object.entries(data)) {
+      if (key != 'fecha') {
+        arrayData.push({
+          moneda: key as string,
+          precio: value.toFixed(2) as number,
+        })
+      }
+    }
+    setcoinsData(arrayData)
+  }
+
+  const simbols: modenassimbols = {
+    euro: '€',
+    yuan: '¥',
+    lira: '₺',
+    rublo: '₽',
+    dolar: '$'
+  }
 
   return (
     <div className={styles.box}>
-      <div className={styles.card}>
-      </div>
+      <section className={styles.section}>
+        <div className={styles.card}>
+          <h2 className={styles.title}>Tasa Referencial del Banco de Venezuela</h2>
+          {loader ?
+            <div className={styles.loader}>
+              <CircularProgress sx={{
+                color: '#00ABB3',
+              }} />
+            </div>
+            :
+            <div>
+              <section>
+                <div className={styles.tableHeader}>
+                  <section className={styles.sectionTable}>Moneda</section>
+                  <section className={styles.sectionTable}>Precio</section>
+                </div>
+                {coinsData.map((res) => <div className={styles.table} key={res.moneda}>
+                  <Moneda data={res} simbol={simbols[res.moneda as keyof modenassimbols]} />
+                </div>)}
+              </section>
+              <div className={styles.info}>
+                <Tooltip title={date}>
+                  <InfoIcon />
+                </Tooltip>
+              </div>
+            </div>
+          }
+        </div>
+      </section>
     </div>
   )
 }

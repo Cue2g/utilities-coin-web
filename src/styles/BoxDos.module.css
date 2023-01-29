@@ -1,6 +1,58 @@
-
-
-
 .box {
-    background-color: red;
+    /* background-color:#00ABB3; */
+    order: 3;
+    flex-basis: 50%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.section{
+    padding: 2rem;
+}
+
+.card {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #EAEAEA;
+    color: #3C4048;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2), 0 10px 30px 0 rgba(0, 0, 0, 0.19);
+    flex-flow: column nowrap;
+}
+
+.card > h2 {
+    color: #3C4048;
+}
+
+.table {
+    display:  flex;
+}
+
+.tableHeader {
+    display:  flex;
+    margin-bottom: 1rem;
+    color: #00ABB3;
+    font-weight: 800;
+}
+
+.sectionTable{
+    padding: 0.5rem;
+    flex:1
+}
+
+.info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.loader {
+    display: flex;
+    padding: 6rem;
+    justify-content: center;
+    align-items: center;
+}
+
+
