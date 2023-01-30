@@ -29,18 +29,18 @@ export default function BoxUno() {
 
   return (
     <div className={styles.box}>
-      <Slide direction="up" in={true} mountOnEnter>
         <section className={styles.section}>
           <h1 className={styles.title}> Utilities coin</h1>
           <p>Utilities coin es un pequeño proyecto que almacena el registro de la tasa de cambio referencial del Banco Central de Venezuela desde enero del 2020 hasta la fecha actual.</p>
           <p>El objetivo es almacenar todos los cambios de las tasas para así realizar futuros análisis.</p>
           <p>Esta es la primera version de la api y actualmente se encuentra en desarrollo.</p>
           <p>Este endpoint es de libre consumo para pequeños proyectos</p>
-          <code>
+          <code className={styles.code}>
             API: bcv.utilitiesapis.ml
           </code>
         </section>
-      </Slide>
+
     </div>
   )
 }
+

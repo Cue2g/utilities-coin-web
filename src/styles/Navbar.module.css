@@ -1,10 +1,26 @@
 .navbar{
     background-color: #B2B2B2;
-    order: 1;
-    flex-basis: 10%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     color: #3C4048;
     padding: 1rem;
+}
+
+.logo {
+    order: 2;
+    flex-basis: 50%;
+    font-weight: 800;
+    font-size: 1rem;
+}
+
+.social {
+    order: 2;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: right;
+}
+.social > a {
+    margin: 0 0.5rem;
+    color: inherit;
+    color: #3C4048;
+
 }

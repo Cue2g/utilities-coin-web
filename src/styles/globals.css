@@ -2,16 +2,18 @@ html,
 body,
 body>div:first-child,
 div#__next {
-    min-height: 100vh;
+    height: 100%;
     margin: 0;
     padding: 0;
     color: #EAEAEA;
     background-color: #3C4048;
+    font-size: 20px;
 }
 
 html {
-    font-family: 'Michroma', sans-serif;
+    font-family: 'Anaheim', sans-serif;
 }
+
 
 /* color: 
 https://colorhunt.co/palette/00abb33c4048b2b2b2eaeaea

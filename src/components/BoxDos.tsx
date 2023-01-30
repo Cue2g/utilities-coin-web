@@ -74,7 +74,7 @@ export default function BoxDos() {
         })
       }
     }
-    setcoinsData(arrayData)
+    setcoinsData(arrayData.reverse())
   }
 
   const simbols: modenassimbols = {

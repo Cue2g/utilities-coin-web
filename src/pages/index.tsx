@@ -14,16 +14,18 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Fade in={true} unmountOnExit>
-      <main className={styles.main}>
+        <main className={styles.main}>
           <Navbar />
-          <BoxUno />
-          <BoxDos />
-          {/* <footer className={styles.footer}>
-          foo
-        </footer> */}
-      </main>
-      </Fade>
+          <div className={styles.container}>
+            <BoxUno />
+            <BoxDos />
+          </div>
+
+          <footer className={styles.footer}>
+            <p>version: 1.0.1</p>
+            <p>Creado por <a href="https://github.com/Cue2g">@Cue2g</a>- Todos los derechos reservados</p>
+          </footer>
+        </main>
     </>
   )
 }
