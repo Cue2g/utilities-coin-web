@@ -22,7 +22,7 @@ export default function Home() {
           </div>
 
           <footer className={styles.footer}>
-            <p>version: 1.0.1</p>
+            <p>version: 0.0.2</p>
             <p>Creado por <a href="https://github.com/Cue2g">@Cue2g</a>- Todos los derechos reservados</p>
           </footer>
         </main>
