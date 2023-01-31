@@ -39,7 +39,7 @@
 
 .sectionTable{
     padding: 0.5rem;
-    flex:1
+    flex:1;
 }
 
 .info {
@@ -56,3 +56,29 @@
 }
 
 
+@media (max-width: 475px) {
+    .section{
+        padding: 0.5rem;
+    }
+
+    .sectionTable{
+        text-align: left;
+    }
+}
+
+@media (max-width: 350px) {
+    
+    .box {
+        padding: 0;
+        order: 2;
+    }
+
+    .section {
+        margin: 0;
+        padding: 0;
+    }
+
+    .sectionTable{
+        padding: 0;
+    }
+}

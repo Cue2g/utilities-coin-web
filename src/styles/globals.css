@@ -8,6 +8,7 @@ div#__next {
     color: #EAEAEA;
     background-color: #3C4048;
     font-size: 20px;
+    min-width: 300px;
 }
 
 html {

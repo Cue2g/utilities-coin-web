@@ -17,21 +17,6 @@
     color: #00ABB3;
 }
 
-.table {
-    display:  flex;
-}
-
-.tableHeader {
-    display:  flex;
-    margin-bottom: 1rem;
-    color: #B2B2B2;
-    font-weight: 800;
-}
-
-.sectionTable{
-    padding: 0.5rem;
-    flex:1;
-}
 
 .code {
     padding: 0.5rem;
@@ -39,3 +24,24 @@
     background-color: #00ABB3;
 }
 
+
+
+@media (max-width: 350px) {
+    
+    .box {
+        padding: 0;
+        order: 3;
+    }
+    .section {
+        padding: 0;
+        margin: 1rem;
+    }
+    .title {
+        font-size: 32px;
+    }
+
+    .code {
+        font-size: 0.5rem;
+    }
+
+}
