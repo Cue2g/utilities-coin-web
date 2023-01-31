@@ -57,6 +57,12 @@
 
 
 @media (max-width: 475px) {
+    
+    .box {
+        padding: 0;
+        order: 2;
+    }
+
     .section{
         padding: 0.5rem;
     }
@@ -68,11 +74,6 @@
 
 @media (max-width: 350px) {
     
-    .box {
-        padding: 0;
-        order: 2;
-    }
-
     .section {
         margin: 0;
         padding: 0;

@@ -24,14 +24,15 @@
     background-color: #00ABB3;
 }
 
-
-
-@media (max-width: 350px) {
-    
+@media (max-width:475){
     .box {
         padding: 0;
         order: 3;
     }
+}
+
+@media (max-width: 350px) {
+    
     .section {
         padding: 0;
         margin: 1rem;
