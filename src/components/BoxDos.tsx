@@ -48,7 +48,7 @@ export default function BoxDos() {
 
   const getData = async () => {
     try {
-      const peticion = await fetch('https://bcv.utilitiesapis.ml');
+      const peticion = await fetch('https://bcv.penguinserver.cf');
       const json = await peticion.json()
       const data = json.data as response;
       const fechaActualizacion = new Date(data.fecha)
