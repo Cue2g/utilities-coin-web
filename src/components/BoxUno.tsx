@@ -36,7 +36,7 @@ export default function BoxUno() {
           <p>Esta es la primera version de la api y actualmente se encuentra en desarrollo.</p>
           <p>Este endpoint es de libre consumo para pequeños proyectos</p>
           <code className={styles.code}>
-            API: bcv.utilitiesapis.ml
+            API: bcv.penguinserver.cf
           </code>
         </section>
 
